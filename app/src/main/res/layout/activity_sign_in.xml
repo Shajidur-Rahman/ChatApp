@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cartoonback"
-    tools:context=".SignUpActivity">
+    tools:context=".SignInActivity">
 
 
     <ImageView
@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/sendicon" />
 
     <EditText
-        android:id="@+id/signUpemail"
+        android:id="@+id/signInemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/signUppass"
+        android:id="@+id/signInpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -55,14 +55,14 @@
         android:padding="10dp"
         android:shadowColor="@color/purple_700"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/signupBtn"
-        app:layout_constraintEnd_toEndOf="@+id/signUpemail"
+        app:layout_constraintBottom_toTopOf="@+id/signInBtn"
+        app:layout_constraintEnd_toEndOf="@+id/signInemail"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/signUpemail"
-        app:layout_constraintTop_toBottomOf="@+id/signUpemail" />
+        app:layout_constraintStart_toStartOf="@+id/signInemail"
+        app:layout_constraintTop_toBottomOf="@+id/signInemail" />
 
     <Button
-        android:id="@+id/signupBtn"
+        android:id="@+id/signInBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -71,23 +71,23 @@
         android:textSize="18sp"
         android:textColor="?android:textColorPrimary"
         android:textColorHint="?android:textColorPrimary"
-        app:layout_constraintBottom_toTopOf="@+id/signupBtnal"
-        app:layout_constraintEnd_toEndOf="@+id/signUppass"
+        app:layout_constraintBottom_toTopOf="@+id/dont"
+        app:layout_constraintEnd_toEndOf="@+id/signInpass"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/signUppass"
-        app:layout_constraintTop_toBottomOf="@+id/signUppass" />
+        app:layout_constraintStart_toStartOf="@+id/signInpass"
+        app:layout_constraintTop_toBottomOf="@+id/signInpass" />
 
     <Button
-        android:id="@+id/signupBtnal"
+        android:id="@+id/dont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:background="@drawable/edittextre1"
         android:text="Don't have "
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/signupBtn"
+        app:layout_constraintEnd_toEndOf="@+id/signInBtn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/signupBtn"
-        app:layout_constraintTop_toBottomOf="@+id/signupBtn" />
+        app:layout_constraintStart_toStartOf="@+id/signInBtn"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

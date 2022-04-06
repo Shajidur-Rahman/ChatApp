@@ -3,6 +3,8 @@ package com.shajidurrahman.chatapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -19,14 +21,27 @@ public class SignUpActivity extends AppCompatActivity {
 
     ActivitySignUpBinding binding;
     private FirebaseAuth auth;
+    ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        dialog = new ProgressDialog(SignUpActivity.this);
+        dialog.setTitle("Creating user...");
+        dialog.setMessage("Please wait while creating an account");
+        dialog.setCancelable(false);
         auth = FirebaseAuth.getInstance();
         signUpButton();
+
+        binding.signupBtnal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+            }
+        });
+
 
     }
 
@@ -34,6 +49,9 @@ public class SignUpActivity extends AppCompatActivity {
         binding.signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                dialog.show();
+
                 String name = binding.signUpname.getText().toString();
                 String email = binding.signUpemail.getText().toString();
                 String password = binding.signUppass.getText().toString();
@@ -62,13 +80,18 @@ public class SignUpActivity extends AppCompatActivity {
                 if (task.isSuccessful()){
                     String uId = task.getResult().getUser().getUid();
                     FirebaseDatabase.getInstance().getReference().child("USERS").child(uId).setValue(users);
+                    dialog.dismiss();
                     Toast.makeText(SignUpActivity.this, "Sign up successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
 
                 } else {
                     Toast.makeText(SignUpActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        if (auth.getCurrentUser() != null){
+            startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+        }
     }
 
 

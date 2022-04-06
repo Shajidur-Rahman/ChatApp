@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WhatsApp</string>
+    <string name="app_name">Chat App</string>
     <string name="signupemail">Enter your email</string>
     <string name="signupname">Enter your name</string>
     <string name="signuppassword">Enter your password</string>
