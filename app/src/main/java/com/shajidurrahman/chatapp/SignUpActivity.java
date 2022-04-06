@@ -28,6 +28,9 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        getSupportActionBar().hide();
+
         dialog = new ProgressDialog(SignUpActivity.this);
         dialog.setTitle("Creating user...");
         dialog.setMessage("Please wait while creating an account");
@@ -39,6 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                finish();
             }
         });
 
@@ -83,6 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
                     dialog.dismiss();
                     Toast.makeText(SignUpActivity.this, "Sign up successfully", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                    finish();
 
                 } else {
                     Toast.makeText(SignUpActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
@@ -91,6 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
         if (auth.getCurrentUser() != null){
             startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+            finish();
         }
     }
 

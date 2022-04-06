@@ -28,6 +28,8 @@ public class SignInActivity extends AppCompatActivity {
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().hide();
+
         dialog = new ProgressDialog(SignInActivity.this);
         dialog.setTitle("Signing...");
         dialog.setMessage("Please wait while signing to your account");
@@ -39,12 +41,15 @@ public class SignInActivity extends AppCompatActivity {
 
         if (auth.getCurrentUser() != null){
             startActivity(new Intent(SignInActivity.this, MainActivity.class));
+            finish();
         }
 
         binding.dont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
+                finish();
+
             }
         });
 
@@ -70,6 +75,7 @@ public class SignInActivity extends AppCompatActivity {
                 dialog.dismiss();
                 if (task.isSuccessful()){
                     startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                    finish();
                 } else {
                     Toast.makeText(SignInActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
                 }
