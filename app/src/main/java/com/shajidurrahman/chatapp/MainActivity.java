@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.logout:
                 auth.signOut();
                 startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                finish();
                 break;
         }
 
