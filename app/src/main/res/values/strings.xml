@@ -4,4 +4,6 @@
     <string name="signupname">Enter your name</string>
     <string name="signuppassword">Enter your password</string>
     <string name="log_out">Log out</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
